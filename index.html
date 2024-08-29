@@ -1,137 +1,137 @@
-<!DOCTYPE.html > คัดลอก
-< html  lang =" th " >
-< หัว>
-    < เมตา ชุดอักขระ = " UTF-8 " >
-    < meta  name =" ช่องมองภาพ " เนื้อหา =" ความกว้าง=ความกว้างของอุปกรณ์, ขนาดเริ่มต้น=1.0 " >
-    < title >ระบบจัดการการบ้าน</ title >
-    < สไตล์>
-        ร่างกาย {
-            ฟอนต์: Arial, sans-serif;
-            ระยะขอบ: 20px;
-            สีพื้นหลัง: #1b2938;
-            สี: #fff;
-        -
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจัดการการบ้าน</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1b2938;
+            color: #fff;
+        }
         h1, h2 {
-            สี: #fff;
-        -
-        รูปร่าง {
-            ระยะขอบล่าง: 20px;
-        -
-        อินพุต, พื้นที่ข้อความ, ปุ่ม {
-            การแสดงผล: บล็อก;
-            ความกว้าง: 100%;
-            ระยะขอบล่าง: 10px;
-            ช่องว่าง: 10 พิกเซล;
-            เส้นขอบ: 1px solid #ccc;
-            รัศมีเส้นขอบ: 5px;
-        -
-        ปุ่ม {
-            สีพื้นหลัง: #000;
-            สี : ขาว;
-            เคอร์เซอร์: ตัวชี้;
-            การเปลี่ยนแปลง: สีพื้นหลัง ผ่อนคลาย 0.3 วินาที;
-        -
-        ปุ่ม: โฮเวอร์ {
-            สีพื้นหลัง: #555;
-        -
-        ยูล {
-            list-style-type: ไม่มี;
-            การเติมเต็ม: 0;
-        -
-        ลี่ {
-            สีพื้นหลัง: #f8f9fa;
-            สี: #000;
-            ช่องว่าง: 10 พิกเซล;
-            ระยะขอบล่าง: 5px;
-            รัศมีเส้นขอบ: 5px;
-            จอภาพ: ความยืดหยุ่น;
-            justify-content: ช่องว่างระหว่าง;
-            จัดตำแหน่งรายการ: กึ่งกลาง;
-        -
-        .btn สมบูรณ์ {
-            สีพื้นหลัง: #dc3545;
-            ขอบ: ไม่มี;
-            สี : ขาว;
+            color: #fff;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input, textarea, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #000;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f8f9fa;
+            color: #000;
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .complete-btn {
+            background-color: #dc3545;
+            border: none;
+            color: white;
             padding: 5px 10px;
-            เคอร์เซอร์: ตัวชี้;
-            รัศมีเส้นขอบ: 5px;
-            การเปลี่ยนแปลง: สีพื้นหลัง ผ่อนคลาย 0.3 วินาที;
-        -
-        .สมบูรณ์-btn:โฮเวอร์ {
-            สีพื้นหลัง: #c82333;
-        -
-    </ สไตล์>
-</ หัวเรื่อง>
-< เนื้อหา>
-    < h1 >ระบบจัดการการบ้าน</ h1 >
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .complete-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>ระบบจัดการการบ้าน</h1>
+    
+    <h2>เพิ่มการบ้านใหม่</h2>
+    <form id="homeworkForm">
+        <input type="text" id="subject" placeholder="วิชา" required>
+        <input type="datetime-local" id="dueDate" required>
+        <textarea id="details" placeholder="รายละเอียดการบ้าน" required></textarea>
+        <button type="submit">เพิ่มการบ้าน</button>
+    </form>
 
-    < h2 >เพิ่มการบ้านใหม่</ h2 >
-    < แบบฟอร์ม id = " แบบฟอร์มการบ้าน " >
-        < input  type =" text " id =" subject " placeholder =" วิชา " required >
-        < ประเภทอินพุต  =" datetime-local " id =" dueDate " จำเป็น>
-        < textarea  id =" detail " placeholder =" รายละเอียดการบ้าน " required > </ textarea >
-        < ประเภทปุ่ม  =" ส่ง " > >ยังการบ้าน</ ปุ่ม>
-    </ แบบฟอร์ม>
+    <h2>รายการงานที่ค้างอยู่</h2>
+    <ul id="homeworkList">
+        <!-- รายการงานจะถูกเพิ่มที่นี่ -->
+    </ul>
 
-    < h2 >รายการที่กำลังดำเนินการอยู่</ h2 >
-    < ul  id =" รายการการบ้าน " >
-        <!-- รายการงานที่จะเพิ่มที่นี่ -->
-    </ul>​​
+    <script>
+        document.getElementById('homeworkForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
-    < สคริปต์>
-        เอกสาร. getElementById ( 'homeworkForm' ) . addEventListener ( 'submit' ,  ฟังก์ชัน( event )  {
-            เหตุการณ์. preventDefault ( ) ;
+            const subject = document.getElementById('subject').value;
+            const dueDate = document.getElementById('dueDate').value;
+            const details = document.getElementById('details').value;
 
-            const  subject  =  document . getElementById ( 'subject' ) . value ;
-            const  dueDate  =  document . getElementById ( 'dueDate' ) . value ;
-            const  details  =  document . getElementById ( 'รายละเอียด' ) . value ;
-
-            const  รายการการบ้าน =  {
-                เรื่อง : เรื่อง,
-                dueDate : วันที่ใหม่ ( dueDate ) . toLocaleString ( ) ,
-                รายละเอียด : รายละเอียด
-            } ;
+            const homeworkItem = {
+                subject: subject,
+                dueDate: new Date(dueDate).toLocaleString(),
+                details: details
+            };
 
             // บันทึกข้อมูลลงใน Local Storage
-            ให้ homeworkList  =  JSON . parse ( localStorage . getItem ( 'homeworkList' ) )  ||  [ ] ;
-            รายการการบ้าน. push ( รายการการบ้าน) ;
-            localStorage.setItem ( ' homeworkList ' , JSON.stringify ( homeworkList ) ) ;​​ 
+            let homeworkList = JSON.parse(localStorage.getItem('homeworkList')) || [];
+            homeworkList.push(homeworkItem);
+            localStorage.setItem('homeworkList', JSON.stringify(homeworkList));
 
-            addHomeworkToList ( รายการการบ้าน) ;
+            addHomeworkToList(homeworkItem);
 
-            // ซักค่าในแบบฟอร์มหลังจากเพิ่มงานแล้ว
-            เอกสาร. getElementById ( 'subject' ) . value  =  '' ;
-            เอกสาร. getElementById ( 'dueDate' ) . value  =  '' ;
-            เอกสาร. getElementById ( 'รายละเอียด' ) . value  =  '' ;
-        } ) ;
+            // ล้างค่าในฟอร์มหลังจากเพิ่มงานแล้ว
+            document.getElementById('subject').value = '';
+            document.getElementById('dueDate').value = '';
+            document.getElementById('details').value = '';
+        });
 
-        ฟังก์ชัน addHomeworkToList ( homeworkItem )  {
-            const  li  =  document.createElement ( ' li ' ) ;
-            ลี้​ textContent  =  `วิชา: ${ homeworkItem . subject } , วันครบกำหนด: ${ homeworkItem . DueDate } , รายละเอียด: ${ homeworkItem . รายละเอียด} ` ;
+        function addHomeworkToList(homeworkItem) {
+            const li = document.createElement('li');
+            li.textContent = `วิชา: ${homeworkItem.subject}, วันครบกำหนด: ${homeworkItem.dueDate}, รายละเอียด: ${homeworkItem.details}`;
+            
+            const completeBtn = document.createElement('button');
+            completeBtn.textContent = 'ทำเสร็จแล้ว';
+            completeBtn.className = 'complete-btn';
+            completeBtn.onclick = function() {
+                removeHomework(homeworkItem);
+                li.remove();
+            };
 
-            const  completeBtn  =  document .createElement ( ' ปุ่ม' ) ;
-            เสร็จสมบูรณ์Btn textContent  =  'ทำชุด' ;
-            completeBtn . className  =  'complete-btn' ;
-            completeBtn.onclick = ฟังก์ชัน( ) {​​   
-                ลบการบ้าน( homeworkItem ) ;
-                li . ลบ( ) ;
-            } ;
+            li.appendChild(completeBtn);
+            document.getElementById('homeworkList').appendChild(li);
+        }
 
-            li . appendChild ( completeBtn ) ;
-            เอกสาร. getElementById ( 'homeworkList' ) . appendChild ( li ) ;
-        -
+        function removeHomework(homeworkItem) {
+            let homeworkList = JSON.parse(localStorage.getItem('homeworkList')) || [];
+            homeworkList = homeworkList.filter(hw => hw.subject !== homeworkItem.subject || hw.dueDate !== homeworkItem.dueDate || hw.details !== homeworkItem.details);
+            localStorage.setItem('homeworkList', JSON.stringify(homeworkList));
+        }
 
-        ฟังก์ชัน removeHomework ( homeworkItem )  {
-            ให้ homeworkList  =  JSON . parse ( localStorage . getItem ( 'homeworkList' ) )  ||  [ ] ;
-            รายการการบ้าน =  รายการการบ้าน. ตัวกรอง( hw  =>  hw . subject  !==  รายการการบ้าน. subject  ||  hw . dueDate  !==  รายการการบ้าน. dueDate  ||  hw . details  !==  รายการการบ้าน. details ) ;
-            localStorage.setItem ( ' homeworkList ' , JSON.stringify ( homeworkList ) ) ;​​ 
-        -
-
-        // ดาวน์โหลดรายการบ้านเมื่อเปิดฉลอง
-        หน้าต่าง. onload  =  ฟังก์ชัน( )  {
-            ให้ homeworkList  =  JSON . parse ( localStorage . getItem ( 'homeworkList' ) )  ||  [ ] ;
-            การบ้านรายการ. forEach ( addHomeworkToList ) ;
-        } ;
-    </ สคริปต์>
-</ เนื้อหา>
-</ html >
+        // โหลดรายการการบ้านเมื่อเปิดหน้าเว็บ
+        window.onload = function() {
+            let homeworkList = JSON.parse(localStorage.getItem('homeworkList')) || [];
+            homeworkList.forEach(addHomeworkToList);
+        };
+    </script>
+</body>
+</html>
