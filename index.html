@@ -5,62 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ระบบจัดการการบ้าน</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #1b2938;
-            color: #fff;
-        }
-        h1, h2 {
-            color: #fff;
-        }
-        form {
-            margin-bottom: 20px;
-        }
-        input, textarea, button {
-            display: block;
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        button {
-            background-color: #000;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #555;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            background-color: #f8f9fa;
-            color: #000;
-            padding: 10px;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .complete-btn {
-            background-color: #dc3545;
-            border: none;
-            color: white;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-        .complete-btn:hover {
-            background-color: #c82333;
-        }
+        /* Your CSS styles here */
     </style>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"></script>
+    <!-- Initialize Firebase -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID",
+            databaseURL: "https://YOUR_PROJECT_ID.firebaseio.com"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </head>
 <body>
     <h1>ระบบจัดการการบ้าน</h1>
@@ -79,6 +43,7 @@
     </ul>
 
     <script>
+        // JavaScript code for adding homework and interacting with Firebase
         document.getElementById('homeworkForm').addEventListener('submit', function(event) {
             event.preventDefault();
 
@@ -92,14 +57,10 @@
                 details: details
             };
 
-            // บันทึกข้อมูลลงใน Local Storage
-            let homeworkList = JSON.parse(localStorage.getItem('homeworkList')) || [];
-            homeworkList.push(homeworkItem);
-            localStorage.setItem('homeworkList', JSON.stringify(homeworkList));
+            // Save to Firebase
+            firebase.database().ref('homeworkList').push(homeworkItem);
 
-            addHomeworkToList(homeworkItem);
-
-            // ล้างค่าในฟอร์มหลังจากเพิ่มงานแล้ว
+            // Clear form fields
             document.getElementById('subject').value = '';
             document.getElementById('dueDate').value = '';
             document.getElementById('details').value = '';
@@ -108,12 +69,11 @@
         function addHomeworkToList(homeworkItem) {
             const li = document.createElement('li');
             li.textContent = `วิชา: ${homeworkItem.subject}, วันครบกำหนด: ${homeworkItem.dueDate}, รายละเอียด: ${homeworkItem.details}`;
-            
+
             const completeBtn = document.createElement('button');
             completeBtn.textContent = 'ทำเสร็จแล้ว';
             completeBtn.className = 'complete-btn';
             completeBtn.onclick = function() {
-                removeHomework(homeworkItem);
                 li.remove();
             };
 
@@ -121,17 +81,13 @@
             document.getElementById('homeworkList').appendChild(li);
         }
 
-        function removeHomework(homeworkItem) {
-            let homeworkList = JSON.parse(localStorage.getItem('homeworkList')) || [];
-            homeworkList = homeworkList.filter(hw => hw.subject !== homeworkItem.subject || hw.dueDate !== homeworkItem.dueDate || hw.details !== homeworkItem.details);
-            localStorage.setItem('homeworkList', JSON.stringify(homeworkList));
-        }
-
-        // โหลดรายการการบ้านเมื่อเปิดหน้าเว็บ
-        window.onload = function() {
-            let homeworkList = JSON.parse(localStorage.getItem('homeworkList')) || [];
-            homeworkList.forEach(addHomeworkToList);
-        };
+        // Load existing homework items
+        firebase.database().ref('homeworkList').on('value', function(snapshot) {
+            document.getElementById('homeworkList').innerHTML = '';
+            snapshot.forEach(function(childSnapshot) {
+                addHomeworkToList(childSnapshot.val());
+            });
+        });
     </script>
 </body>
 </html>
